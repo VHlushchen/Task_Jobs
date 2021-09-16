@@ -22,6 +22,6 @@ jobs:
     
     steps:
     - name: Hello Message
-      run: echo "Hello Word my deploy"
+      run: echo "Hello Word my deployment"
     
         
