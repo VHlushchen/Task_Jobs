@@ -11,7 +11,7 @@ jobs:
     
     steps:
     - name: Hello Message
-      run: echo "Hello World my testing"
+      run: echo "Hello World my testing deploy"
       
   my_testing_deploy:
     
