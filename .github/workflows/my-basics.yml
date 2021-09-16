@@ -2,8 +2,7 @@ name: My-GitHub-basics
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
 jobs:
   my_testing:
   
