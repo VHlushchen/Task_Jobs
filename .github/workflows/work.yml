@@ -29,8 +29,8 @@ jobs:
       - name: Credential AWS 
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCES_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-access-key-id: AKIAQ6W4KIXVDE2RHENX
+          aws-secret-access-key: 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
           aws-region       : ${{ env.AWS_REGION_NAME }}
       
       - name: Copy to S3
