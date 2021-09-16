@@ -24,14 +24,15 @@ jobs:
       - name: Create ZIP file
         run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
-      - uses: shallwefootball/s3-upload-action@master
-        name: Upload S3
-        id: S3
+      - name: Credentials my AWS
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws_key_id: ${{ secrets.AWS_ACCESS_ID_KEY}}
-          aws_secret_access_key: ${{ secrets.AWS_SECRETS_KEYY}}
-          aws_bucket: ${{  env.EB_PACKAGE_S3_BUCKET_NAMET }}
-          source_dir: '${{ env.DEPLOY_PACKAGE_NAME }}'
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRETS_KEY }}
+          aws-region: ${{ env.AWS_REGION_NAME }}
+        
+      -name: Copy to S3
+        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }}  s3://${{ EB_PACKAGE_S3_BUCKET_NAME }}/
       
       
 
