@@ -17,8 +17,10 @@ jobs:
     runs-on: ubuntu-lastest
     
     steps:
-    - name: Git clone our repo
-      uses: actions/checkout@v2
+    - name: Echo
+      run: echo "hello world"
+#     - name: Git clone our repo
+#       uses: actions/checkout@v2
       
 #     - name: Create ZIP file
 #       run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
