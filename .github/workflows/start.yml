@@ -7,14 +7,25 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches:
-     - main
+     - master
  
   workflow_dispatch:
 
 jobs:
-  Hello:
+  
+  Testing:
+    
     runs-on: ubuntu-latest
 
     steps:
     - name: Print Hello World
-      run: echo "hello world"
+      run: echo "hello world Testing"
+      
+  Testing_deploy:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Print Hello World
+      run: echo "hello world Deploy"
+    
