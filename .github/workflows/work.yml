@@ -32,5 +32,5 @@ jobs:
           aws-region           : ${{ env.AWS_REGION_NAME }}
       
       - name: Copy to S3 bucket
-        run: aws s3 sync ${{ env.DEPLOY_PACKAGE_NAME }} s3://my-github-actions-bucket/
+        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://my-github-actions-bucket/
       
