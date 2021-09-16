@@ -13,12 +13,12 @@ on:
 jobs:
   
   CI:
-    
-    runs-on: ubuntu-lastest
-    
+  
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Echo
-      run: echo "hello world"
+      - name: Setup repo
+        uses: actions/checkout@v2
 #     - name: Git clone our repo
 #       uses: actions/checkout@v2
       
