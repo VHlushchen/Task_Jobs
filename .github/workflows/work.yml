@@ -24,15 +24,25 @@ jobs:
       - name: Create ZIP file
         run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
-      - name: Credentials my AWS
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRETS_KEY }}
-          aws-region: ${{ env.AWS_REGION_NAME }}
+#       - name: Credentials my AWS
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_ID_KEY }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRETS_KEY }}
+#           aws-region: ${{ env.AWS_REGION_NAME }}
         
-      - name: Copy to S3
-        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://github-bucket-packages
+#       - name: Copy to S3
+#         run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://github-bucket-packages
+      - name: Upload file to bucket
+        uses: zdurham/s3-upload-github-action@master
+        with:
+         args: --acl public-read
+        env:
+          FILE: ${{ env.DEPLOY_PACKAGE_NAME }}
+          AWS_REGION: 'us-east-1'
+          S3_BUCKET: ${{ env.EB_PACKAGE_S3_BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_ID_KEY  }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRETS_KEY }}
       
       
 
