@@ -1,0 +1,27 @@
+name: CI-CD-to-AWS
+env:
+  EB_PACKAGE_S3_BUCKET_NAME : "github-bucket-packages"
+  EB_APPLICATION_NAME       : "MyTest"
+  MY_ENVIROMENT_NAME        : "MyTest-env"
+  DEPLOY_PACKAGE_NAME       : "MyTest_app ${{ github.sha }}.zip"
+  AWS_REGION_NAME           : "eu-est"
+  
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  
+  CI:
+    
+    runs-on: ubuntu-lastest
+    
+    steps:
+    - name: Git clone our repo
+      uses: actions/checkout@v1
+      
+    - name: Create ZIP file
+      run: zip -r ${{ DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+      
+      
