@@ -24,13 +24,18 @@ jobs:
       - name: Create ZIP file
         run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
-      - name: Credential AWS 
-        uses: aws-actions/configure-aws-credentials@v1
+#       - name: Credential AWS 
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           aws-access-key-id    : ${{ secrets.AWS_ACCESS_ID_KEY }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRETS_KEY }}
+#           aws-region           : ${{ env.AWS_REGION_NAME }}
+      
+      - name: Copy a file from s3
+        uses: prewk/s3-cp-action@v2
         with:
-          aws-access-key-id    : ${{ secrets.AWS_ACCESS_ID_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRETS_KEY }}
-          aws-region           : ${{ env.AWS_REGION_NAME }}
-      
-      - name: Copy to S3 bucket
-        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }}  s3://github-bucket-packages/
-      
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_ID_KEY }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRETS_KEY }}
+          source: ${{ env.EB_PACKAGE_S3_BUCKET_NAME}}
+          dest: ${{ env.DEPLOY_PACKAGE_NAME  }}
+
