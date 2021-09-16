@@ -32,7 +32,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION_NAME }}
         
       - name: Copy to S3
-        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://my-test-bucket-for-work/
+        run: aws s3 sync ./${{ env.DEPLOY_PACKAGE_NAME }} s3://my-test-bucket-for-work/
 #       - name: Upload file to bucket
 #         uses: zdurham/s3-upload-github-action@master
 #         with:
