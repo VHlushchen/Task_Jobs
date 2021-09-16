@@ -13,12 +13,5 @@ jobs:
     - name: Hello Message
       run: echo "Hello World my testing deploy"
       
-  my_testing_deploy:
-    
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Hello Message
-      run: echo "Hello Word my deployment"
     
         
