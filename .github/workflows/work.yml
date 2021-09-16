@@ -4,7 +4,7 @@ env:
   EB_APPLICATION_NAME       : "MyTest"
   MY_ENVIROMENT_NAME        : "MyTest-env"
   DEPLOY_PACKAGE_NAME       : "MyTest_app ${{ github.sha }}.zip"
-  AWS_REGION_NAME           : "eu-est"
+#   AWS_REGION_NAME           : "eu-est"
   
 on:
   push: 
@@ -23,4 +23,10 @@ jobs:
       - name: Create ZIP file
         run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
+      - name: Credentials AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCES_KEY }}
+      - name: Copy to S3
+        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ EB_PACKAGE_S3_BUCKET_NAME }}/
       
