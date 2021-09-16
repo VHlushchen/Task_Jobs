@@ -3,7 +3,7 @@ env:
   EB_PACKAGE_S3_BUCKET_NAME : "my-test-bucket-for-work"
   EB_APPLICATION_NAME       : "MyTest"
   MY_ENVIROMENT_NAME        : "MyTest-env"
-  DEPLOY_PACKAGE_NAME       : "MyTest_app ${{ github.sha }}.zip"
+  DEPLOY_PACKAGE_NAME       : "MyTest_app_${{ github.sha }}.zip"
   AWS_REGION_NAME           : "eu-north-1"
   
 on:
