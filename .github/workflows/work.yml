@@ -23,7 +23,7 @@ jobs:
       - name: Create ZIP file
         run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
-      - name: Credentials AWS
+      - name: Credential AWS 
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCES_KEY }}
