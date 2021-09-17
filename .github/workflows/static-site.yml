@@ -1,0 +1,28 @@
+name : Upload site
+env:
+  EB_PACKAGE_S3_BUCKET_NAME : "github-bucket-packages"
+  AWS_REGION_NAME           : "eu-north-1"
+  
+
+on:
+  push:
+    branches:
+    - master
+    
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy Repo
+        uses: actions/checkout@v1
+    
+      - name: asdas
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRETs_KEY }}
+          aws-region: ${{ env.AWS_REGION_NAME }}
+          
+      - name: Deploy to S3
+        run: aws s3 sync . s3://${{ env.EB_PACKAGE_S3_BUCKET_NAME }} --delete
