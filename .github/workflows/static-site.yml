@@ -24,5 +24,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRETs_KEY }}
           aws-region: ${{ env.AWS_REGION_NAME }}
           
-      - name: Deploy to S3
+      - name: Deploy to S3 +
         run: aws s3 sync ./out s3://${{ env.EB_PACKAGE_S3_BUCKET_NAME }} --delete
