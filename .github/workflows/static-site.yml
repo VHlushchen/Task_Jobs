@@ -22,7 +22,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Install packages
       run: |
-        cd react-application-folder/
+        yarn install
+
     - name: Production build      
       run: |        
         unset CI
