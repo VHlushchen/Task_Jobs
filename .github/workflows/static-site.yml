@@ -1,7 +1,9 @@
 name: CI
+
 on:
   push:
     branches: master
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +27,7 @@ jobs:
       run: |        
         unset CI
         yarn build
-   yarn install
+#    yarn install
 # name : Upload site
 # env:
 #   EB_PACKAGE_S3_BUCKET_NAME : "github-bucket-packages"
