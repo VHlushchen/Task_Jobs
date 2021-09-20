@@ -10,8 +10,10 @@ jobs:
     steps:        
     - name: Check repository      
       uses: actions/setup-node@v1
-    - name: Intall nmp
-      run: apt-get install -y npm
+    - name: Setup node 12
+      uses: actions/setup-node@v2
+      with:
+        node-version: 12.x
 #    yarn install
 # name : Upload site
 # env:
