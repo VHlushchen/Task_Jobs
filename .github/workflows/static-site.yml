@@ -25,7 +25,10 @@ jobs:
         management_api_key: ${{ secrets.CONT_MANAGARE }}
         migrations_dir: ${{ secrets.CONTENT_DELIVERY }}
     - name: setup 
-      run: npm run setup
+      run: npm run setup \
+           ${{ secrets.SPACE_ID }} \
+           ${{ secrets.CONT_MANAGARE }} \ 
+           ${{ secrets.CONTENT_DELIVERY }}
     - name: check public
       run: ls
     
