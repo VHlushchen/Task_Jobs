@@ -26,9 +26,7 @@ jobs:
         migrations_dir: ${{ secrets.CONTENT_DELIVERY }}
     - name: setup 
       run: npm run setup \
-           ${{ secrets.SPACE_ID }} \
-           ${{ secrets.CONT_MANAGARE }} \ 
-           ${{ secrets.CONTENT_DELIVERY }}
+           ${{ secrets.SPACE_ID }}
     - name: check public
       run: ls
     
