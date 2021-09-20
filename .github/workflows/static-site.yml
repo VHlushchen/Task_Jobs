@@ -16,8 +16,7 @@ jobs:
         node-version: 12.x
     - name: check repo
       run: ls
-    - name: rm -rf node_modules \
-            npm install \
+    - name: npm install --unsafe-perm
             
       run: sudo npm install
     - name: Migrate contentfull
