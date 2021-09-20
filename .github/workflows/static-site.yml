@@ -19,11 +19,6 @@ jobs:
     - name: npm install
       run: npm install --unsafe-perm
     - name: Migrate contentfull
-#     - uses
-#        with:
-#         space_id: ${{ secrets.SPACE_ID }}
-#         management_api_key: ${{ secrets.CONT_MANAGARE }}
-#         migrations_dir: ${{ secrets.CONTENT_DELIVERY }}
     - run: npm run setup "${{ secrets.SPACE_ID }}" "${{ secrets.CONT_MANAGARE }}" "${{ secrets.CONTENT_DELIVERY }}"
     - name: check public
       run: ls
