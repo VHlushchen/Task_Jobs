@@ -16,9 +16,8 @@ jobs:
         node-version: 12.x
     - name: check repo
       run: ls
-    - name: npm install --unsafe-perm
-            
-      run: sudo npm install
+    - name: npm install
+      run: npm install --unsafe-perm
     - name: Migrate contentfull
       uses: contentful-userland/contentful-action@main
       with:
