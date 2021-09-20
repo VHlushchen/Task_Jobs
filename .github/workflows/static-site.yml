@@ -22,6 +22,11 @@ jobs:
         space_id: ${{ secrets.SPACE_ID }}
         management_api_key: ${{ secrets.CONT_MANAGARE }}
         migrations_dir: ${{ secrets.CONTENT_DELIVERY }}
+    - name: setup 
+      run: npm run setup
+    - name: check public
+      run: ls
+    
 #    yarn install
 # name : Upload site
 # env:
