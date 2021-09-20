@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: 12.x
     - name: npm install
-      run: npm install
+      run: sudo npm install
     - name: Migrate contentfull
       uses: contentful-userland/contentful-action@main
       with:
