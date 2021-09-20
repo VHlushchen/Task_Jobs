@@ -7,27 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:      
-      matrix:        
-        node-version: [11.x]
-      
-    steps:      
-  # Use the node version specified in the strategy    
-    - name: Use Node.js ${{ matrix.node-version }}      
-      uses: actions/setup-node@v1      
-      with:        
-        node-version: ${{ matrix.node-version }}
-   
-    - name: Git checkout
-      uses: actions/checkout@v2
-    - name: Install packages
-      run: |
-        yarn install
-
-    - name: Production build      
-      run: |        
-        unset CI
-        yarn build
+    steps:        
+    - name: Check repository      
+      uses: actions/setup-node@v1
+    - name: Intall nmp
+      run: apt-get install -y npm
 #    yarn install
 # name : Upload site
 # env:
