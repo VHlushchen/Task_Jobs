@@ -16,6 +16,10 @@ jobs:
         node-version: 12.x
     - name: npm install
       run: npm install
+    - name: script-build
+      run: npm run-script build
+    - name: check
+      run: ls
 #    yarn install
 # name : Upload site
 # env:
