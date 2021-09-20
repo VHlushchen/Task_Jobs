@@ -14,7 +14,9 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 12.x
-    - name: npm ci
+    - name: rm -rf node_modules \
+            npm install \
+            
       run: sudo npm install
     - name: Migrate contentfull
       uses: contentful-userland/contentful-action@main
