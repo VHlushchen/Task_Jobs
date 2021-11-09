@@ -42,9 +42,15 @@ chmod +x test.sh
 
 Example testing:
 
+1. Start scripts
+
 ![start script](start-scripts.png?raw=true)
 
+2. Launch additional pods
+
 ![add pods](addition_pods.png "Add new pods")
+
+3. Remove free pods
 
 ![rem pods](remove-free-pods.png "Remove free pods")
 
