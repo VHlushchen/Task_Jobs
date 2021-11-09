@@ -42,9 +42,9 @@ chmod +x test.sh
 
 Example testing:
 
-![alt text](Kebernetes-POC-master/api/start-scripts.png "Script launch")
-![alt text](Kebernetes-POC-master/api/addition_pods.png "Add new pods")
-![alt text](Kebernetes-POC-master/api/remove-free-pods.png "Remove free pods")
+![alt text](start-scripts.png "Script launch")
+![alt text](addition_pods.png "Add new pods")
+![alt text](remove-free-pods.png "Remove free pods")
 
 
 
